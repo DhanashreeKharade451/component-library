@@ -8,6 +8,8 @@ export interface AlertBoxProps {
   children?: React.ReactNode;
 }
 
+//////////////////////////////////////////////
+ //UserProfileCard Component
 export interface User {
   id: string;
   name: string;
@@ -24,7 +26,9 @@ export interface UserProfileCardProps {
   children?: React.ReactNode;
 }
 
-// types/index.ts
+/////////////////////////////////////////////
+// ProductDisplay Component
+
 export interface Product {
   id: string;
   name: string;

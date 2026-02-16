@@ -1,9 +1,10 @@
 import "./App.css";
 import AlertBox from "./components/AlertBox/AlertBox";
 import UserProfileCard from "./components/UserProfileCard/UserProfileCard";
-//import type { User } from "./types/index";
+import ProductDisplay from "./components/ProductDisplay/ProductDisplay";
 
 function App() {
+  // user object for userprofilecard
   const user = {
     id: "1",
     name: "John Doe",
@@ -11,6 +12,17 @@ function App() {
     role: "Software Engineer",
     avatarUrl: "https://example.com/avatar.jpg",
   };
+
+  // product object for ProductDispaly
+  const product = {
+    id: "1",
+    name: "Wireless Headphones",
+    price: 199.99,
+    description: "High-quality wireless headphones with noise cancellation.",
+    imageUrl: "https://example.com/headphones.jpg",
+    inStock: true,
+  };
+
   return (
     <>
       <AlertBox
@@ -31,6 +43,7 @@ function App() {
         This is our main session
       </AlertBox>
       {/* ///////////////////////////////////////////////// */}
+      {/* Displaying UserProfileCard */}
 
       <UserProfileCard
         user={user}
@@ -40,6 +53,17 @@ function App() {
       >
         <div className="text-sm text-gray-500">Last login: 2 hours ago</div>
       </UserProfileCard>
+
+      {/* ///////////////////////////////////////////////////// */}
+      {/* Displaying ProductDisplay*/}
+      <ProductDisplay
+        product={product}
+        showDescription={true}
+        showStockStatus={true}
+        onAddToCart={(productId) => alert(`Added product ${productId} to cart`)}
+      >
+        <div className="text-sm text-gray-500">Free shipping available</div>
+      </ProductDisplay>
     </>
   );
 }
