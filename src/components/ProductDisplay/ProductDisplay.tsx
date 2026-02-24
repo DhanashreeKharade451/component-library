@@ -7,7 +7,7 @@ export default function ProductDisplay({
   children,
 }: ProductDisplayProps) {
   return (
-    <div className="bg-white  rounder shadow-md overflowhidden">
+    <div className="bg-white  rounded-lg shadow-md overflowhidden">
       <img
         alt="Wireless Headphones"
         className="w-full h-48 object-cover"
