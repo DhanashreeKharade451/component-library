@@ -1,3 +1,53 @@
+Answers for Reflection Questions:
+****************************************
+
+Q1. How did you handle optional props in your components?
+Ans:
+Optional props were defined like this:
+showEmail?: boolean;
+showRole?: boolean;
+onEdit?: (userId: string) => void;
+children?: React.ReactNode;
+
+This ensures that:
+The prop may or may not be passed.
+TypeScript does not throw an error if it’s omitted.
+
+I used conditional rendering to safely render optional content:
+{showEmail && <p>{user.email}</p>}
+
+This prevents runtime errors when optional props are undefined.
+
+To make behavior predictable, I provided default values like,
+showEmail = false,
+showRole = false,
+
+
+************************************************************************************
+Q2. What considerations did you make when designing the component interfaces?
+
+When designing interfaces, I focused on:
+
+🔹 Reusability
+Each component was designed to be reusable in different contexts:
+ProductDisplay can show or hide description/stock status.
+AlertBox supports multiple alert types.
+
+Each component receives a structured object:
+user: User
+product: Product
+
+This keeps Data logic separate from presentation and Components looks clean and predictable.
+************************************************************************************
+Q3. How did you ensure type safety across your components?
+Ans:
+Type safety was ensured through,
+-Centralized Types
+
+What challenges did you face when implementing component composition?
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
