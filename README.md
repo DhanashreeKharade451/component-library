@@ -41,11 +41,33 @@ This keeps Data logic separate from presentation and Components looks clean and 
 ************************************************************************************
 Q3. How did you ensure type safety across your components?
 Ans:
-Type safety was ensured through,
--Centralized Types
+All interfaces and types were defined in one place:
+AlertBoxProps
+UserProfileCardProps
+ProductDisplayProps
+User
+Product
+This ensures,Consistency,Easy maintenance,Single source of truth.
 
-What challenges did you face when implementing component composition?
+Each component explicitly uses its interface:
+const ProductDisplay: React.FC<ProductDisplayProps>
 
+This ensures, Required props must be passed, Optional props are validated, Wrong prop types ause compile-time errors
+
+*********************************************************************************************
+Q4. What challenges did you face when implementing component composition?
+Ans:
+
+When composing components together (like in App.tsx), I had to ensure:
+
+Alerts only show when state is true,
+Buttons don’t break if callbacks aren’t provided,
+Children render correctly inside components or not,
+This required careful conditional logic.
+
+ensured components are not depend on each other directly. Only rely on props
+Remain independent and reusable,
+This makes the library scalable.
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 # React + TypeScript + Vite
